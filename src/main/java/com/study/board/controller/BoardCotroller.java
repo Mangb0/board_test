@@ -24,9 +24,9 @@ public class BoardCotroller {
     }
 
     @PostMapping("/board/writepro")
-    public String boardWritePro(Board board, Model model, MultipartFile file) throws Exception{
+    public String boardWritePro(Board board, Model model) {
 
-        boardService.write(board, file);
+        boardService.write(board);
 
         model.addAttribute("message", "글 작성이 완료되었습니다.");
 
@@ -57,14 +57,14 @@ public class BoardCotroller {
     }
 
     @PostMapping("/board/update/{boardno}")
-    public String boardUpdate(@PathVariable("boardno") Integer boardno, Board board, Model model, MultipartFile file) throws Exception{
+    public String boardUpdate(@PathVariable("boardno") Integer boardno, Board board, Model model) {
 
         Board boardTemp = boardService.boardView(boardno);
         boardTemp.setTitle(board.getTitle());
         boardTemp.setContent(board.getTitle());
         boardTemp.setWriter(board.getWriter());
 
-        boardService.write(boardTemp, file);
+        boardService.write(boardTemp);
 
         model.addAttribute("message", "글 수정이 완료되었습니다.");
 

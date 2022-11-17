@@ -9,7 +9,6 @@
 <p th:text="${board.content}">내용입니다</p>
 <a th:href="@{/board/delete(boardno=${board.boardno})}">글삭제</a>
 </br>
-<a th:href="@{${board.filepath}}">저장된 파일</a>
 <a th:href="@{/board/modify/{boardno}(boardno = ${board.boardno})}">수정</a>
 </body>
 </html>
